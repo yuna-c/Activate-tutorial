@@ -16,29 +16,30 @@
 
   <script>
     /*
-     const info = [
-     { url: "https://www.naver.com", target: "_blank", name: "네이버" },
-     { url: "https://www.nate.com", target: "_self", name: "네이트" },
-     { url: "https://www.google.com", target: "_blank", name: "구글" },
-   ];
+      const info = [
+      { url: "https://www.naver.com", target: "_blank", name: "네이버" },
+      { url: "https://www.nate.com", target: "_self", name: "네이트" },
+      { url: "https://www.google.com", target: "_blank", name: "구글" },
+    ];
 
-   const links = document.querySelectorAll('a');
+    const links = document.querySelectorAll('a');
 
-   info.forEach((data, idx) => {
-     const { url, target, name } = data;
+    info.forEach((data, idx) => {
+      const { url, target, name } = data;
 
-     links[idx].setAttribute('href', url);
-     links[idx].setAttribute('target', target);
-     links[idx].innerText = name;
-     console.log('----------');
-   })
+      links[idx].setAttribute('href', url);
+      links[idx].setAttribute('target', target);
+      links[idx].innerText = name;
+      console.log('----------');
+    })
    */
     const nav = document.querySelector('nav');
     const info = [
       { url: "https://www.naver.com", target: "_blank", name: "네이버" },
       { url: "https://www.nate.com", target: "_self", name: "네이트" },
       { url: "https://www.daum.net", target: "_blank", name: "다음" },
-      { url: "https://www.kakaocorp.com", target: "_blank", name: "카카오" }
+      { url: "https://www.kakaocorp.com", target: "_blank", name: "카카오" },
+      { url: "https://www.google.com/", target: "_blank", name: "구글" }
     ]
     /*
     동적 DOM 생성
@@ -49,13 +50,10 @@
     // 문자열을 초기화하는 빈 변수를 만들고 +=을 활용해서 반복추가할 태그를 문자열 형태로 쌓아 놓고
     // 마지막에 해당 돔 요소에 변수에 있는 반복태그 문자열을 한번에 꽂아넣음
     /*
- 
-     let tags = '';
- 
-     tags += `<a href='${info[0].url}' target='${info[0].target}'>${info[0].name}</a> `;
-     tags += `<a href='${info[1].url}' target='${info[1].target}'>${info[1].name}</a> `;
-     tags += `<a href='${info[2].url}' target='${info[2].target}'>${info[2].name}</a> `;
- 
+      let tags = '';
+      tags += `<a href='${info[0].url}' target='${info[0].target}'>${info[0].name}</a> `;
+      tags += `<a href='${info[1].url}' target='${info[1].target}'>${info[1].name}</a> `;
+      tags += `<a href='${info[2].url}' target='${info[2].target}'>${info[2].name}</a> `;
     */
     let tags = '';
 
@@ -66,15 +64,10 @@
       // links[idx].setAttribute('target', target);
       // links[idx].innerText = name;
       tags += `<a href='${data.url}' target='${data.target}'>${data.name}</a> `;
-
-
     })
 
     console.log(tags);
     nav.innerHTML = tags;
-
-
-
 
   </script>
 </body>
