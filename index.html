@@ -15,6 +15,25 @@
   </main>
 
   <script>
+    /*
+     const info = [
+     { url: "https://www.naver.com", target: "_blank", name: "네이버" },
+     { url: "https://www.nate.com", target: "_self", name: "네이트" },
+     { url: "https://www.google.com", target: "_blank", name: "구글" },
+   ];
+
+   const links = document.querySelectorAll('a');
+
+   info.forEach((data, idx) => {
+     const { url, target, name } = data;
+
+     links[idx].setAttribute('href', url);
+     links[idx].setAttribute('target', target);
+     links[idx].innerText = name;
+     console.log('----------');
+   })
+   */
+
     const info = [
       { url: "https://www.naver.com", target: "_blank", name: "네이버" },
       { url: "https://www.nate.com", target: "_self", name: "네이트" },
@@ -30,22 +49,31 @@
     // 특정 부모요소 안에 반복적인 DOM요소를 동적 생성하기 위해서는 
     // 문자열을 초기화하는 빈 변수를 만들고 +=을 활용해서 반복추가할 태그를 문자열 형태로 쌓아 놓고
     // 마지막에 해당 돔 요소에 변수에 있는 반복태그 문자열을 한번에 꽂아넣음
-    let tags = '';
-
-    tags += `<a href='${info[0].url}' target='${info[0].target}'>${info[0].name}</a> `;
-    tags += `<a href='${info[1].url}' target='${info[1].target}'>${info[1].name}</a> `;
-    tags += `<a href='${info[2].url}' target='${info[2].target}'>${info[2].name}</a> `;
-
     /*
-    tags += `<a href='${info[0].url}' target='${info[0].target}'>${info[0].name}</a> ` +
-            `<a href='${info[1].url}' target='${info[1].target}'>${info[1].name}</a> ` +
-            `<a href='${info[2].url}' target='${info[2].target}'>${info[2].name}</a> `;
+ 
+     let tags = '';
+ 
+     tags += `<a href='${info[0].url}' target='${info[0].target}'>${info[0].name}</a> `;
+     tags += `<a href='${info[1].url}' target='${info[1].target}'>${info[1].name}</a> `;
+     tags += `<a href='${info[2].url}' target='${info[2].target}'>${info[2].name}</a> `;
+ 
     */
 
+    info.forEach((data, idx) => {
+      let tags = '';
+      const { url, target, name } = data;
+      // links[idx].setAttribute('href', url);
+      // links[idx].setAttribute('target', target);
+      // links[idx].innerText = name;
+      tags += `<a href='${data.url}' target='${data.target}'>${data.name}</a> `;
+      console.log(tags);
+      nav.innerHTML = tags;
 
-    console.log(tags);
+    })
 
-    nav.innerHTML = tags;
+
+
+
   </script>
 </body>
 
