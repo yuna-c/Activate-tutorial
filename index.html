@@ -6,23 +6,72 @@
   <meta name='viewport' content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/main.js"></script>
+  <!-- <script defer src="js/main.js"></script> -->
 </head>
 
 <body>
   <main>
-    <ul>
-      <li class="on"><span>button1</span></li>
-      <li>button2</li>
-      <li>button3</li>
-    </ul>
-
-    <section>
-      <article class="on">TAB1</article>
-      <article>TAB2</article>
-      <article>TAB3</article>
-    </section>
+    <!-- 
+      _self : 해당 탭이 변경되면서 링크 이동
+      _blank : 해당 탭 그대로 링크 이동
+    -->
+    <!-- <a href="https://www.naver.com" target="_self">네이버</a> -->
+    <a href="#">init</a>
+    <a href="#">init</a>
+    <a href="#">init</a>
+    <a href="#">init</a>
   </main>
+
+  <script>
+    //DOM 요소에 속성값 제어
+    //DOM.getAttribute('속성명'): 해당 속성명의 값 가져오기
+    //DOM.setAttribute('속성명','변경할 속성값'): 해당 속성명의 값을 변경
+
+    // const link = document.querySelector('a');
+    // console.log(link.getAttribute('htef'));
+    // link.getAttribute('href');
+    // console.log(link.getAttribute('htef'));
+    // link.setAttribute('href', 'https://daum.net');
+    // link.setAttribute('target', '_blank');
+    // link.innerText = '다음';
+
+    //위의 정보값 link, target 이름값을 각각 객체로 정의한 다음 배열로 묶어서 해당 a요소 변경되도록 처리
+    //가급적으로 데이터를 배열로 돌려서 값 꽂아 주는게 좋음
+    const links = document.querySelectorAll('a');
+
+    const info = [
+      { url: "https://www.naver.com", target: "_blank", name: "네이버" },
+      { url: "https://www.nate.com", target: "_self", name: "네이트" },
+      { url: "https://www.daum.net", target: "_blank", name: "다음" },
+      { url: "https://www.kakaocorp.com", target: "_blank", name: "카카오" }
+    ]
+    console.log(links);
+    console.log(info);
+
+    info.forEach((data, idx) => {
+      // console.log(data); 키값
+      // console.log(idx);
+      // console.log(data.url);
+      // console.log(data.target);
+      // console.log(data.name);
+
+      //비구조 할당으로 뽑아내기 
+      const { url, target, name } = data;
+
+      // const url = data.url;
+      // const target = data.target;
+      // const name = data.name;
+      console.log('-----------------------');
+
+      links[idx].setAttribute('href', url);
+      links[idx].setAttribute('target', target)
+      links[idx].innerText = name;
+
+
+
+    });
+
+  </script>
 </body>
 
 </html>
